@@ -1,0 +1,41 @@
+const path = require('path');
+const express = require('express');
+
+// Initiaize Instance of Express as app
+const app = express();
+
+// POST Requests: In order to accept post requests, you must use bodyParser
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, 'build')));
+
+/*---------------------------
+| !IMPORTANT :: Should not be done in Production
+| Bypassing CORS so express can be on port 5000 and react can be on 3000
+| We will set up a Proxy 3000 -> 5000 at some point to bypass this for local development
+| In production you would have Express access a static build of your app - so no proxy is needed.
+app.use((request, response, next) => {
+    response.header("Access-Control-Allow-Origin", "*");
+    response.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
+---------------------------*/
+
+/*---------------------------
+| Route Collections
+---------------------------*/
+const routes = require('./express-routes/index.js');
+app.use('/api/portfolio', routes.portfolio);
+app.use('/api/email', routes.email);
+
+// Catchall for requests that do not match our routing
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+// Heroku hook to use dynamic port binding
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => { console.log('Server is up and listening on port:' + PORT );  });
