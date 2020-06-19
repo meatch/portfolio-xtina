@@ -17,12 +17,12 @@ app.use(express.static(path.join(__dirname, 'build')));
 | Bypassing CORS so express can be on port 5000 and react can be on 3000
 | We will set up a Proxy 3000 -> 5000 at some point to bypass this for local development
 | In production you would have Express access a static build of your app - so no proxy is needed.
+---------------------------*/
 app.use((request, response, next) => {
     response.header("Access-Control-Allow-Origin", "*");
     response.header("Access-Control-Allow-Headers", "Content-Type");
     next();
 });
----------------------------*/
 
 /*---------------------------
 | Route Collections
