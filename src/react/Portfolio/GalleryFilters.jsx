@@ -34,4 +34,20 @@ export default GalleryFilters;
 const GalleryFiltersStyled = styled.div`
     text-align: center;
     margin: 30px 0px;
+
+    button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        display: inline-block;
+        padding: 5px 0px;
+        margin: 0px 10px;
+
+        border-bottom: solid 5px #cee2e8;
+        &.active {
+            border-color: #134d5f;
+        }
+    }
+
 `;

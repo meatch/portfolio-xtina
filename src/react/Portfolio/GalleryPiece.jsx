@@ -36,6 +36,7 @@ const GalleryPieceStyled = styled.div`
 
     img {
         max-width: 100%;
+        display: block;
     }
 
     .title {
@@ -56,6 +57,4 @@ const GalleryPieceStyled = styled.div`
     &:hover {
         .title { opacity: 1; }
     }
-
-
 `;

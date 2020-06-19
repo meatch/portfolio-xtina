@@ -52,6 +52,6 @@ const GalleryStyled = styled.div`
         display: flex;
         flex-wrap: wrap;
 
-        margin: 20px 0px;
+        margin: 20px 0px 0px;
     }
 `;

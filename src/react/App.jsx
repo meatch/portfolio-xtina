@@ -15,6 +15,9 @@ const App = () => {
 
     const queries = useMediaQuery();
 
+    const theDate = new Date();
+    const year = theDate.getFullYear();
+
     return (
         <BrowserRouter>
             <AppStyled className='App' queries={ queries }>
@@ -30,6 +33,10 @@ const App = () => {
                             <Route path='/' exact component={ Portfolio } />
                         </Switch>
                     </main>
+                    <footer>
+                        Designed and Developed by Christina &amp; and Mitchell Gohman<br />
+                        &copy; { year }. All rights reserved.
+                    </footer>
                 </div> 
             </AppStyled>
         </BrowserRouter>
@@ -45,7 +52,7 @@ const AppStyled = styled.div`
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-color: #08232B;
-    padding: 0 10px 50px;
+    padding: 0 10px 10px;
 
     
     & > h2 {
@@ -84,6 +91,13 @@ const AppStyled = styled.div`
             padding: 10px;
             min-height: 500px;
             border-radius: 5px;
+        }
+
+        footer {
+            color: #658d98;
+            font-size: 12px;
+            text-align: center;
+            padding: 100px 20px;
         }
     }
 `;
