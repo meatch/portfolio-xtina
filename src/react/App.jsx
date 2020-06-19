@@ -52,7 +52,7 @@ const AppStyled = styled.div`
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-color: #08232B;
-    padding: 0 10px 10px;
+    padding: 10px;
 
     
     & > h2 {
@@ -88,9 +88,21 @@ const AppStyled = styled.div`
         main {
             display: block;
             background-color: #fff;
-            padding: 10px;
             min-height: 500px;
             border-radius: 5px;
+
+            ${ ({queries}) => { 
+                if (queries.isSmall) { 
+                    return css`padding: 10px;`;
+                }
+                if (queries.isMedium) { 
+                    return css`padding: 10px;`;
+                }
+                if (queries.isLarge) { 
+                    return css`padding: 20px;`;
+                }
+            }}
+
         }
 
         footer {
