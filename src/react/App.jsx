@@ -9,7 +9,7 @@ import { useMediaQuery } from './common/responsive.js';
 import Nav from './Nav.jsx';
 import NavSocial from './NavSocial.jsx';
 import Portfolio from './Portfolio/Portfolio.jsx';
-import Contact from './Contact/Contact.jsx';
+import HireMe from './HireMe/HireMe.jsx';
 
 const App = () => {
 
@@ -20,7 +20,10 @@ const App = () => {
     return (
         <BrowserRouter>
             <AppStyled className='App' queries={ queries }>
-                <h2>MITCHELL GOHMAN</h2>
+                <h2>
+                    MITCHELL GOHMAN<br />
+                    <span>DEVELOPER</span>
+                </h2>
                 <div className="wrapper">
                     <nav className='Primary'>
                         <Nav />
@@ -28,7 +31,7 @@ const App = () => {
                     </nav>
                     <main>
                         <Switch>
-                            <Route path='/contact' component={ Contact } />
+                            <Route path='/hireme' component={ HireMe } />
                             <Route path='/' exact component={ Portfolio } />
                         </Switch>
                     </main>
@@ -58,15 +61,17 @@ const AppStyled = styled.div`
         color: #fff;
         margin: 0px;
 
+        span { font-size: 40px; }
+
         ${ ({queries}) => { 
             if (queries.isSmall) { 
-                return css`padding: 60px 0px;`;
+                return css`padding: 60px 0px; line-height: 80%;`;
             }
             if (queries.isMedium) { 
-                return css`padding: 150px 0px;`;
+                return css`padding: 150px 0px; line-height: 75%;`;
             }
             if (queries.isLarge) { 
-                return css`padding: 150px 0px;`;
+                return css`padding: 150px 0px; line-height: 60%;`;
             }
         }}
     }

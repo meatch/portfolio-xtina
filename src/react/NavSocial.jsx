@@ -2,21 +2,26 @@ import React from 'react';
 import styled from 'styled-components';
 import {SocialMediaIconsReact} from 'social-media-icons-react';
 
-const NavSocial = () => {
+const NavSocial = ({
+    size=25,
+    bgColor="rgba(255,255,255,1)",
+    iconColor="rgba(19,77,95,1)",
+    opacity=".5"
+}) => {
 
     return (
-        <NavSocialStyled className='NavSocial'>
-            <SocialMediaIconsReact 
-                icon="linkedin" 
+        <NavSocialStyled className='NavSocial' opacity={ opacity }>
+            <SocialMediaIconsReact
+                icon="linkedin"
                 url="https://www.linkedin.com/in/mgohman/"
-                roundness="20%" iconSize="5" borderColor="rgba(0,0,0,0.25)" borderWidth="0" borderStyle="solid" iconColor="rgba(19,77,95,1)" backgroundColor="rgba(255,255,255,1)" 
-                size="25" 
+                roundness="20%" iconSize="5" borderColor="rgba(0,0,0,0.25)" borderWidth="0" borderStyle="solid" iconColor={ iconColor } backgroundColor={ bgColor } 
+                size={ size }
             />
             <SocialMediaIconsReact 
-                icon="github"   
+                icon="github"
                 url="https://github.com/meatch"
-                roundness="20%" iconSize="5" borderColor="rgba(0,0,0,0.25)" borderWidth="0" borderStyle="solid" iconColor="rgba(19,77,95,1)" backgroundColor="rgba(255,255,255,1)" 
-                size="25"
+                roundness="20%" iconSize="5" borderColor="rgba(0,0,0,0.25)" borderWidth="0" borderStyle="solid" iconColor={ iconColor } backgroundColor={ bgColor } 
+                size={ size }
             />
         </NavSocialStyled>
     );
@@ -28,7 +33,7 @@ const NavSocialStyled = styled.div`
     a {
         display: inline-block;
         margin-left: 10px;
-        opacity: .5;
+        opacity: ${({opacity}) => opacity};
         transition: opacity .5s;
 
         &:hover {
