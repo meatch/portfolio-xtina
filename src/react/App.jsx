@@ -1,15 +1,38 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+/* Scripts ---------------------------*/
+import { useMediaQuery } from './common/responsive.js';
+
+/* Components ---------------------------*/
+import Nav from './Nav.jsx';
+import NavSocial from './NavSocial.jsx';
+import Portfolio from './Portfolio/Portfolio.jsx';
+import Contact from './Contact/Contact.jsx';
 
 const App = () => {
 
+    const queries = useMediaQuery();
+
     return (
-        <AppStyled className='App'>
-            <h1>MITCHELL GOHMAN</h1>
-            <div className="wrapper">
-                content
-            </div> 
-        </AppStyled>
+        <BrowserRouter>
+            <AppStyled className='App' queries={ queries }>
+                <h2>MITCHELL GOHMAN</h2>
+                <div className="wrapper">
+                    <nav className='Primary'>
+                        <Nav />
+                        <NavSocial />
+                    </nav>
+                    <main>
+                        <Switch>
+                            <Route path='/contact' component={ Contact } />
+                            <Route path='/' exact component={ Portfolio } />
+                        </Switch>
+                    </main>
+                </div> 
+            </AppStyled>
+        </BrowserRouter>
     );
 }
 
@@ -23,25 +46,44 @@ const AppStyled = styled.div`
     background-repeat: no-repeat;
     background-color: #08232B;
     padding: 0 10px 50px;
+
     
-    
-    & > h1 {
-        padding: 150px 0px;
+    & > h2 {
         text-align: center;
         font-size: 80px;
         color: #fff;
         margin: 0px;
+
+        ${ ({queries}) => { 
+            if (queries.isSmall) { 
+                return css`padding: 60px 0px;`; 
+            }
+            if (queries.isMedium) { 
+                return css`padding: 150px 0px;`; 
+            }
+            if (queries.isLarge) { 
+                return css`padding: 150px 0px;`; 
+            }
+        }}
+
     }
 
     .wrapper {
         max-width: 1200px;
         width: 100%;
         margin: auto;
-        background-color: #fff;
-        padding: 10px;
 
-        min-height: 2000px;
-
-        border-radius: 5px;
+        nav.Primary {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0px;
+        }
+        main {
+            display: block;
+            background-color: #fff;
+            padding: 10px;
+            min-height: 500px;
+            border-radius: 5px;
+        }
     }
 `;
