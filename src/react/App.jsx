@@ -14,7 +14,6 @@ import Contact from './Contact/Contact.jsx';
 const App = () => {
 
     const queries = useMediaQuery();
-
     const theDate = new Date();
     const year = theDate.getFullYear();
 
@@ -47,13 +46,11 @@ export default App;
 
 const AppStyled = styled.div`
     background-image: url('/assets/img/backdrop.png');
-    /* background-size: contain; */
     background-position: center top;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-color: #08232B;
     padding: 10px;
-
     
     & > h2 {
         text-align: center;
@@ -63,16 +60,15 @@ const AppStyled = styled.div`
 
         ${ ({queries}) => { 
             if (queries.isSmall) { 
-                return css`padding: 60px 0px;`; 
+                return css`padding: 60px 0px;`;
             }
             if (queries.isMedium) { 
-                return css`padding: 150px 0px;`; 
+                return css`padding: 150px 0px;`;
             }
             if (queries.isLarge) { 
-                return css`padding: 150px 0px;`; 
+                return css`padding: 150px 0px;`;
             }
         }}
-
     }
 
     .wrapper {
@@ -102,7 +98,6 @@ const AppStyled = styled.div`
                     return css`padding: 20px;`;
                 }
             }}
-
         }
 
         footer {
