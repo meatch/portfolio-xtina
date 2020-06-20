@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 
 // Initiaize Instance of Express as app
-// 3
+// 4
 const app = express();
 
 // POST Requests: In order to accept post requests, you must use bodyParser
