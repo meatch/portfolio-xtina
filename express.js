@@ -1,18 +1,23 @@
 /*===================================
 || 
-|| NodeJS with Express 1
+|| NodeJS Server with Express Framework
 || 
 ===================================*/
+/*---------------------------
+| Environment Vars
+---------------------------*/
+require('dotenv').config();
 
 /*---------------------------
 | Config
 ---------------------------*/
-const PORT = 5000;
+const PORT = process.env.NODE_PORT || 5000; // fallback to 5000
 
 /*---------------------------
 | Resources
 ---------------------------*/
 const path = require('path');
+// require('dotenv').config({ path: './.env.local' });
 const express = require('express');
 const bodyParser = require("body-parser"); //Only way to do POST requests
 
@@ -34,15 +39,15 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 /*---------------------------
 | !IMPORTANT :: Should not be done in Production
-| and should not need it if we have reverseProxy.js set up in root of app. uses http-proxy-middleware package
-| We will set up a Proxy 3000 -> 5000 at some point to bypass this for local development
-| Bypassing CORS so express can be on port 5000 and react can be on 3000
-app.use((request, response, next) => {
-    response.header("Access-Control-Allow-Origin", "*");
-    response.header("Access-Control-Allow-Headers", "Content-Type");
-    next();
-});
+| Bypassing CORS so Node Express can be on port 5000 and react can be on 3000
 ---------------------------*/
+if (process.env.ENVIRONMENT === 'local') {
+    app.use((request, response, next) => {
+        response.header("Access-Control-Allow-Origin", "*");
+        response.header("Access-Control-Allow-Headers", "Content-Type");
+        next();
+    });
+}
 
 /*---------------------------
 | Route Collections
