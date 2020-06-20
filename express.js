@@ -37,5 +37,6 @@ app.get('*', (req, res) => {
 });
 
 // Heroku hook to use dynamic port binding
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 app.listen(PORT, () => { console.log('Server is up and listening on port:' + PORT );  });
