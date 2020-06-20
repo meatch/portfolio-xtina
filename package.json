@@ -1,8 +1,8 @@
 {
-    "name": "spa_inclass",
+    "name": "mitchellgohman",
     "version": "0.1.0",
     "engines": {
-        "node": "12.18.1"
+        "node" : ">=12.18.1" 
     },
     "private": true,
     "dependencies": {
