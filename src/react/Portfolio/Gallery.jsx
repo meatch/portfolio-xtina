@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 /* Scripts ---------------------------*/
-// TODO Currently using static data, no need to use a jackhammer at the moment.
-// import { callAxios } from '../../common/axios.js';
-import { response } from './portfolioData.js';
+import { callAxios } from '../../common/axios.js';
 
 /* Components ---------------------------*/
 import GalleryFilters from './GalleryFilters.jsx';
@@ -17,17 +15,11 @@ const Gallery = () => {
     const [chosenCategory, chosenCategorySet] = useState();
 
     useEffect(() => {
-        // callAxios('/portfolio', (response) => {
-        //     chosenCategorySet(response.categories[0]);
-        //     piecesSet(response.pieces);
-        //     categoriesSet(response.categories);
-        // });
-
-        chosenCategorySet(response.categories[0]);
-        piecesSet(response.pieces);
-        categoriesSet(response.categories);
-
-
+        callAxios('/portfolio', (response) => {
+            chosenCategorySet(response.categories[0]);
+            piecesSet(response.pieces);
+            categoriesSet(response.categories);
+        });
     }, []);
 
     return (
