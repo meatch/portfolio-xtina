@@ -7,7 +7,7 @@ const Nav = () => {
 
     return (
         <NavStyled className='Nav'>
-            <NavLink to='/' exact>Porfolio</NavLink>
+            <NavLink to='/' exact>Portfolio</NavLink>
             <NavLink to='/hireme'>Hire Me</NavLink>
         </NavStyled>
     );
