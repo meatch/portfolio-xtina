@@ -22,7 +22,6 @@ const Button = (props) => {
         tabIndex = 0,
         ariaLabel = '',
         disabled = false,
-        role=null,
         ariaExpanded=null,
         ariaChecked=null,
 
@@ -41,12 +40,14 @@ const Button = (props) => {
                     if (type !== 'submit')  { e.preventDefault(); }
                     onClick(e);
                     break;
+                default:
+                    return;
             }
         }
     };
 
     const theClassName = classnames({
-        ['Button']: true,
+        'Button': true,
         [className]: className,
         [display]: true,
         'active': active,
