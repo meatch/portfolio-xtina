@@ -7,6 +7,8 @@ import { useMediaQuery } from '../common/responsive.js';
 /* Components ---------------------------*/
 import PageTemplate from '../PageTemplate.jsx';
 import NavSocial from '../NavSocial.jsx';
+import ContactForm from './ContactForm/ContactForm.jsx';
+
 
 const HireMe = () => {
 
@@ -20,24 +22,23 @@ const HireMe = () => {
                         <img src='/assets/img/me.jpg' alt='Mitchell and Christina Gohman' />
                     </div>
                     <div className="deets">
-                        <h3>I love making a difference for people by building things.</h3>
+                        <h3>I love building things that make a difference for people.</h3>
 
                         <h4>Connect</h4>
-                        <NavSocial 
-                            size={ 50 } 
-                            opacity={ .8 } 
-                            bgColor="rgba(19,77,95,1)" 
+                        <NavSocial
+                            size={ 50 }
+                            opacity={ .8 }
+                            bgColor="rgba(19,77,95,1)"
                             iconColor="rgba(255,255,255,1)"
                         />
 
                         <h4>Contact</h4>
-                        You can use your favorite email client and { ' ' }
-                        <a href="mailto:meatch@me.com">email me</a>. or...
+                        <a href="mailto:meatch@me.com">Email me</a>, or...
 
 
-                        <div className="form">
-                            form goes here.
-                        </div>
+                        <ContactForm />
+
+                        
                     </div>
                 </div>
             </PageTemplate>
@@ -82,7 +83,6 @@ const HireMeStyled = styled.div`
     .hero img {
         display: block;
     }
-
 
     .deets {
         h3 { margin: 0px 0px 50px;  }
