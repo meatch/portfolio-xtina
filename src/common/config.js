@@ -22,5 +22,5 @@ export const config = {
     footer: {
         tagline: `Designed and Developed by Christina &amp; Mitchell ${last}`,
         copyright: `${ year }. All rights reserved.`,
-    }
+    },
 }

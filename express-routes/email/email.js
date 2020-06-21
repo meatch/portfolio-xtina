@@ -13,6 +13,13 @@ router.post('/send', (req, res) => {
     }
 
     /*---------------------------
+    | reCaptcha
+    ---------------------------*/
+    const recaptchaValue = req.body.recaptchaValue;
+
+    console.log('recaptchaValue', recaptchaValue);
+
+    /*---------------------------
     | Compose Message
     ---------------------------*/
     const name = req.body.name;
