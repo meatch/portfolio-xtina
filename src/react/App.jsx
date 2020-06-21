@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 /* Scripts ---------------------------*/
 import { useMediaQuery } from './common/responsive.js';
+import { config } from '../common/config.js';
 
 /* Components ---------------------------*/
 import Nav from './Nav.jsx';
@@ -14,15 +15,13 @@ import HireMe from './HireMe/HireMe.jsx';
 const App = () => {
 
     const queries = useMediaQuery();
-    const theDate = new Date();
-    const year = theDate.getFullYear();
 
     return (
         <BrowserRouter>
             <AppStyled className='App' queries={ queries }>
                 <h2>
-                    MITCHELL GOHMAN<br />
-                    <span>DEVELOPER</span>
+                    <div className='fullname' dangerouslySetInnerHTML={{ __html: config.header.fullname } } />
+                    <div className='title' dangerouslySetInnerHTML={{ __html: config.header.title } } />
                 </h2>
                 <div className="wrapper">
                     <nav className='Primary'>
@@ -36,8 +35,8 @@ const App = () => {
                         </Switch>
                     </main>
                     <footer>
-                        Designed and Developed by Christina &amp; and Mitchell Gohman<br />
-                        &copy; { year }. All rights reserved.
+                        <div className='tagline' dangerouslySetInnerHTML={{ __html: config.footer.tagline } } />
+                        <div className='copyright' dangerouslySetInnerHTML={{ __html: config.footer.copyright } } />
                     </footer>
                 </div> 
             </AppStyled>
@@ -57,21 +56,22 @@ const AppStyled = styled.div`
     
     & > h2 {
         text-align: center;
-        font-size: 80px;
+        text-transform: uppercase;
         color: #fff;
         margin: 0px;
 
-        span { font-size: 40px; }
+        .fullname { font-size: 80px; margin-bottom: 5px; }
+        .title { font-size: 40px; }
 
         ${ ({queries}) => { 
             if (queries.isSmall) { 
-                return css`padding: 60px 0px; line-height: 80%;`;
+                return css`padding: 60px 0px;`;
             }
             if (queries.isMedium) { 
-                return css`padding: 150px 0px; line-height: 75%;`;
+                return css`padding: 150px 0px;`;
             }
             if (queries.isLarge) { 
-                return css`padding: 150px 0px; line-height: 60%;`;
+                return css`padding: 150px 0px;`;
             }
         }}
     }

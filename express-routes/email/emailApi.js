@@ -39,7 +39,7 @@ const emailAPI = {
         const message ={
             to: process.env.EMAIL_RECIP,
             from: process.env.EMAIL_FROM,
-            subject: 'Someone is sending your email from ' + process.env.DOMAIN,
+            subject: 'Someone is sending your email from ' + process.env.REACT_APP_API_ENDPOINT,
             text: stripHtml(msg.html),
             ...msg,
         }

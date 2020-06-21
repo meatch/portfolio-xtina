@@ -37,7 +37,7 @@ const HireMe = () => {
 
                         <h4>Contact</h4>
                         {/* TODO Style Like a Button - ButtonLink */}
-                        <a href={ `mailto:${config.author.email}?subject=Had a question for your ${config.author.name.preferred}...&body=...was looking at your website and...` }>Email Me</a>
+                        <a href={ `mailto:${config.author.email}?subject=Had a question for you ${config.author.name.preferred}...&body=...was looking at your website and...` }>Email Me</a>
 
                         <ContactForm />
                         

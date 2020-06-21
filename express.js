@@ -13,6 +13,8 @@ require('dotenv').config();
 ---------------------------*/
 const PORT = process.env.NODE_PORT || 5000; // fallback to 5000
 
+console.log('process.env', process.env.NODE_ENV);
+
 /*---------------------------
 | Resources
 ---------------------------*/
@@ -41,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 | !IMPORTANT :: Should not be done in Production
 | Bypassing CORS so Node Express can be on port 5000 and react can be on 3000
 ---------------------------*/
-if (process.env.ENVIRONMENT === 'local') {
+if (process.env.NODE_ENV === 'local') {
     app.use((request, response, next) => {
         response.header("Access-Control-Allow-Origin", "*");
         response.header("Access-Control-Allow-Headers", "Content-Type");
