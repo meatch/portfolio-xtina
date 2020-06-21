@@ -5,7 +5,6 @@ import {SocialMediaIconsReact} from 'social-media-icons-react';
 /* Scripts ---------------------------*/
 import { config } from '../common/config.js';
 
-
 const NavSocial = ({
     size=25,
     bgColor="rgba(255,255,255,1)",

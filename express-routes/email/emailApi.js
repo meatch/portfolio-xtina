@@ -33,17 +33,31 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 /*---------------------------
 | Send Email
 ---------------------------*/
-const emailAPI = {
-    sendEmail: (msg) => {
+const EmailAPI = (replyTo, messageBody) => {
 
-        const message ={
-            to: process.env.EMAIL_RECIP,
-            from: process.env.EMAIL_FROM,
-            subject: 'Someone is sending your email from ' + process.env.REACT_APP_API_ENDPOINT,
-            text: stripHtml(msg.html),
-            ...msg,
-        }
+    const composeHTML = (msgBody) => {
+        return `
+            <p>Hello ${process.env.EMAIL_NAME},</p>
 
+            ${msgBody}
+
+            <p>
+                Love,<br />
+                Hubby
+            </p>
+        `;
+    };
+
+    const message = {
+        to: process.env.EMAIL_RECIP,
+        from: process.env.EMAIL_FROM,
+        replyTo: replyTo,
+        subject: 'Someone is sending your email from ' + process.env.REACT_APP_DOMAIN,
+        text: stripHtml(messageBody),
+        html: composeHTML(messageBody),
+    }
+
+    const sendEmail = () => {
         /* Mailtrap ---------------------------*/
         if (process.env.EMAIL_API === 'mailtrap') {
             
@@ -68,6 +82,11 @@ const emailAPI = {
             console.log(error.response.body);
         });
     }
+
+    return {
+        send: sendEmail
+    }
+
 }
 
-module.exports = emailAPI;
+module.exports = EmailAPI;

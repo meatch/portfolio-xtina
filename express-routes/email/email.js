@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const emailAPI = require('./emailApi.js');
+const EmailAPI = require('./emailApi.js');
 
 /*---------------------------
 | Route Handler for Emailing.
@@ -11,16 +11,28 @@ router.post('/send', (req, res) => {
         message: 'Email Sent',
         postedData: req.body,
     }
-    
-    // TODO: Compose the email from the form now.
-    const msg = {
-        html: '<strong>HTML</strong> version of emails.',
-    };
-    
-    emailAPI.sendEmail(msg);
 
-    console.log('Post Sent Email');
+    /*---------------------------
+    | Compose Message
+    ---------------------------*/
+    const name = req.body.name;
+    const replyTo = req.body.email;
+    const message = req.body.message;
+
+    const messageBody = `
+        <p>Name: ${name}</p>
+        <p>Email: <a href='mailto:${replyTo}'>${replyTo}</a></p>
+        <div>${message}</div>
+    `;
+
+    const email = EmailAPI(replyTo, messageBody);
+    email.send();
+
+    /*---------------------------
+    | Return Response
+    ---------------------------*/
     res.json(response);
+
 });
 
 module.exports = router;
