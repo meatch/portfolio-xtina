@@ -1,55 +1,37 @@
 import React from 'react';
-import keycode from 'keycode';
+import styled from 'styled-components';
 import classnames from 'classnames';
 
 /* Styles ---------------------------*/
-import { ButtonStyled } from './ButtonStyled.js';
+import { ButtonStyled } from './Forms/Controls/ButtonStyled.js';
 
-const Button = (props) => {
-    const {
+const ButtonLink = (props) => {
+
+    const { 
+        href,
+    
         className,
-
+    
         height=44,
         width,
         fontSize=18,
-
+    
         type='button',
         display='inline-block', // block || inline || inline-block
-
+    
         children,
-
-        onClick,
-
         active = false,
         tabIndex = 0,
         ariaLabel = '',
         disabled = false,
         ariaExpanded=null,
         ariaChecked=null,
-
+    
         stopPropagation=false,
-
     } = props;
 
-    const keyboardHandler = (e) => {
-        // if button type='submit' we want the form to submit as default
-        // If no onClick method provided, treat as default.
-        if (stopPropagation) { e.stopPropagation(); }
-        if (onClick) {
-            switch(keycode(e)) {
-                case 'enter':
-                case 'space':
-                    if (type !== 'submit')  { e.preventDefault(); }
-                    onClick(e);
-                    break;
-                default:
-                    return;
-            }
-        }
-    };
-
     const theClassName = classnames({
-        'Button': true,
+        'ButtonLink': true,
         [className]: className,
         [display]: true,
         'active': active,
@@ -57,9 +39,12 @@ const Button = (props) => {
         'ariaExpanded': ariaExpanded,
         'ariaChecked': ariaChecked,
     });
-    
-    return(
-        <ButtonStyled
+
+    return (
+        <ButtonLinkStyled 
+            as='a'
+            className='ButtonLink'
+
             className={ theClassName }
             
             height={ height }
@@ -78,12 +63,16 @@ const Button = (props) => {
             aria-expanded={ ariaExpanded }
             aria-checked={ ariaChecked }
 
-            onClick={ onClick }
-            onKeyDown={ keyboardHandler }
+            href={ href }
         >
-            { children }
-        </ButtonStyled>
+            { children } 
+        </ButtonLinkStyled>
     );
-};
+}
 
-export default Button;
+export default ButtonLink;
+
+const ButtonLinkStyled = styled(ButtonStyled)`
+    text-decoration: none;
+    display: inline-block;
+`;
