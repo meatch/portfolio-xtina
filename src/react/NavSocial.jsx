@@ -33,6 +33,12 @@ const NavSocial = ({
                 roundness="20%" iconSize="5" borderColor="rgba(0,0,0,0.25)" borderWidth="0" borderStyle="solid" iconColor={ iconColor } backgroundColor={ bgColor } 
                 size={ size }
             />
+            <SocialMediaIconsReact
+                icon="phone"
+                url={ `tel:${config.author.tel}` }
+                roundness="20%" iconSize="5" borderColor="rgba(0,0,0,0.25)" borderWidth="0" borderStyle="solid" iconColor={ iconColor } backgroundColor={ bgColor } 
+                size={ size }
+            />
         </NavSocialStyled>
     );
 }

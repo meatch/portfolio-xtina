@@ -80,7 +80,7 @@ const FormLabelInputStyled = styled.div`
     margin: 10px 0px;
 
     label {
-        display: ${ ({display}) => display };
+        display: none;
         font-weight: 700;
         margin-bottom: 5px;
     }

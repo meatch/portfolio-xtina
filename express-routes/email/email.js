@@ -3,14 +3,6 @@ const router = express.Router();
 const emailAPI = require('./emailApi.js');
 
 /*---------------------------
-| SendGrid Emailing
----------------------------*/
-// TODO: Compose the email from the form now.
-const msg = {
-    html: '<strong>HTML</strong> version of emails.',
-};
-
-/*---------------------------
 | Route Handler for Emailing.
 ---------------------------*/
 router.post('/send', (req, res) => {
@@ -19,7 +11,12 @@ router.post('/send', (req, res) => {
         message: 'Email Sent',
         postedData: req.body,
     }
-
+    
+    // TODO: Compose the email from the form now.
+    const msg = {
+        html: '<strong>HTML</strong> version of emails.',
+    };
+    
     emailAPI.sendEmail(msg);
 
     console.log('Post Sent Email');

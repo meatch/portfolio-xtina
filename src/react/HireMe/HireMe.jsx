@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 
 /* Scripts ---------------------------*/
 import { useMediaQuery } from '../common/responsive.js';
-import { config } from '../../common/config.js';
 
 /* Components ---------------------------*/
 import PageTemplate from '../PageTemplate.jsx';
@@ -13,8 +12,6 @@ import ContactForm from './ContactForm/ContactForm.jsx';
 const HireMe = () => {
 
     const queries = useMediaQuery();
-
-    console.log('process.env.EMAIL_RECIP', process.env);
 
     return (
         <HireMeStyled className='HireMe' queries={ queries }>
@@ -33,8 +30,8 @@ const HireMe = () => {
                             iconColor="rgba(255,255,255,1)"
                         />
 
+                        <h2>Let's Connect</h2>
                         <ContactForm />
-                        
                     </div>
                 </div>
             </PageTemplate>

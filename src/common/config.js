@@ -12,6 +12,8 @@ export const config = {
             preferred: 'Mitch',
         },
         email: 'Me@MitchellGohman.com',
+        phone: '‪(626) 509-9620‬',
+        tel: '16265099620',
     },
     header: {
         fullname: `${first} ${last}`,
