@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 /* Scripts ---------------------------*/
 import { useMediaQuery } from '../common/responsive.js';
+import { config } from '../../common/config.js';
 
 /* Components ---------------------------*/
 import PageTemplate from '../PageTemplate.jsx';
@@ -13,6 +14,8 @@ import ContactForm from './ContactForm/ContactForm.jsx';
 const HireMe = () => {
 
     const queries = useMediaQuery();
+
+    console.log('process.env.EMAIL_RECIP', process.env);
 
     return (
         <HireMeStyled className='HireMe' queries={ queries }>
@@ -33,11 +36,10 @@ const HireMe = () => {
                         />
 
                         <h4>Contact</h4>
-                        <a href="mailto:meatch@me.com">Email me</a>, or...
-
+                        {/* TODO Style Like a Button - ButtonLink */}
+                        <a href={ `mailto:${config.author.email}?subject=Had a question for your ${config.author.name.preferred}...&body=...was looking at your website and...` }>Email Me</a>
 
                         <ContactForm />
-
                         
                     </div>
                 </div>
