@@ -10,7 +10,6 @@ import PageTemplate from '../PageTemplate.jsx';
 import NavSocial from '../NavSocial.jsx';
 import ContactForm from './ContactForm/ContactForm.jsx';
 
-
 const HireMe = () => {
 
     const queries = useMediaQuery();
@@ -27,17 +26,12 @@ const HireMe = () => {
                     <div className="deets">
                         <h3>I love building things that make a difference for people.</h3>
 
-                        <h4>Connect</h4>
                         <NavSocial
                             size={ 50 }
                             opacity={ .8 }
                             bgColor="rgba(19,77,95,1)"
                             iconColor="rgba(255,255,255,1)"
                         />
-
-                        <h4>Contact</h4>
-                        {/* TODO Style Like a Button - ButtonLink */}
-                        <a href={ `mailto:${config.author.email}?subject=Had a question for you ${config.author.name.preferred}...&body=...was looking at your website and...` }>Email Me</a>
 
                         <ContactForm />
                         
