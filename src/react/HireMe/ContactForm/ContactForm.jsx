@@ -29,8 +29,6 @@ const ContactForm = () => {
     }
 
     const handleFormSubmit = () => {
-        console.log('Submitting Form');
-
         emailSendingSet('sending');
 
         const data = {
@@ -40,8 +38,6 @@ const ContactForm = () => {
         };
 
         callAxiosPost('/email/send', data, (response) => {
-            console.log('response', response);
-
             emailSendingSet('success');
         });
     }
