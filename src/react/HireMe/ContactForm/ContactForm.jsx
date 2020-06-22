@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 /* Scripts ---------------------------*/
 import { useMediaQuery } from '../../common/responsive.js';
@@ -61,10 +61,11 @@ export default ContactForm;
 const TheForm = ({formFields, handleFormFieldOnChange, handleFormSubmit}) => {
     const queries = useMediaQuery();
 
-    const reCaptchaRef = useRef();
+    // const reCaptchaRef = useRef();
 
     const handleSubmit = () => {
-        const recaptchaValue = reCaptchaRef.current.getValue();
+        // const recaptchaValue = reCaptchaRef.current.getValue();
+        const recaptchaValue = 'ReCaptcha temp';
         handleFormSubmit(recaptchaValue);
     }
 
