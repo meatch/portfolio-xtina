@@ -74,12 +74,12 @@ const TheForm = ({formFields, handleFormFieldOnChange, handleFormSubmit}) => {
                 <FormlabelInput formField={ findFormField('contact-name', formFields) } onChange={ handleFormFieldOnChange } />
                 <FormlabelInput formField={ findFormField('contact-email', formFields) } onChange={ handleFormFieldOnChange } />
                 <FormlabelInput formField={ findFormField('contact-message', formFields) } onChange={ handleFormFieldOnChange } />
-                <div className="reCaptcha-wrapper">
+                {/* <div className="reCaptcha-wrapper">
                     <ReCAPTCHA
                         ref={ reCaptchaRef }
                         sitekey={ process.env.REACT_APP_RECAPTCHA_SITE_KEY }
                     />
-                </div>
+                </div> */}
                 <Button
                     type='submit'
                     display={ queries.isSmall ? 'block': 'inline-block' }
