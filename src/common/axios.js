@@ -5,7 +5,7 @@
 ===================================*/
 import axios from 'axios';
 
-const baseURL = process.env.REACT_APP_API_ENDPOINT || 'https://mitchellgohman.com';
+const baseURL = process.env.REACT_APP_API_ENDPOINT || 'https://mitchellgohman.com/api';
 axios.create({ baseURL: baseURL });
 export default axios;
 

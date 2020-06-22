@@ -1,8 +1,8 @@
 <?php
-// $servername = "127.0.0.1:6002";
-// $username = "root";
-// $password = "123456";
-// $database = "lama";
+// $servername = "localhost";
+// $username = "username";
+// $password = "pass";
+// $database = "database";
 
 // // Create connection
 // $conn = new mysqli($servername, $username, $password, $database);
