@@ -79,7 +79,8 @@ const EmailAPI = (replyTo, messageBody) => {
         sgMail.send(message).then(() => {
             console.log('Message sent')
         }).catch((error) => {
-            console.log(error.response.body);
+            // console.log(error.response.body);
+            console.log(error);
         });
     }
 
