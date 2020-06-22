@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const services = require('./portfolioData');
+const items = require('./items/items.json');
 
 router.get('/', (req,res) => { 
-    res.json(services);
+    res.json(items);
     console.log('Retreived Portfolio');
 });
 
