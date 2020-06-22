@@ -1,23 +1,43 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useReducer, useEffect } from 'react';
+
+// Context
+import Context from './context/store.js';
+import reducers from './context/reducers.js';
+import { itemsSet, chosenItemSet } from './context/actions.js';
+
+/* Scripts ---------------------------*/
+import { callAxios } from '../../common/axios.js';
 
 /* Components ---------------------------*/
 import PageTemplate from '../PageTemplate.jsx';
-import Gallery from './Gallery.jsx';
+import Gallery from './Content.jsx';
 
 const Portfolio = () => {
 
+    const defaultState = {
+        items: [],
+        chosenItem: {},
+        showProfile: true,
+    };
+
+    const [ state, dispatch ] = useReducer(reducers, defaultState);
+
+    useEffect(() => {
+        callAxios('/portfolio', (response) => {
+            dispatch(itemsSet(response));
+            dispatch(chosenItemSet(response[0]));
+        });
+    }, []);
+
     return (
-        <PortfolioStyled className='Portfolio'>
-            <PageTemplate title='Portfolio'>
-                <Gallery />
-            </PageTemplate>
-        </PortfolioStyled>
+        <Context.Provider value={ { state, dispatch } }>
+            <div className='Portfolio'>
+                <PageTemplate title='Portfolio'>
+                    <Gallery />
+                </PageTemplate>
+            </div>
+        </Context.Provider>
     );
 }
 
 export default Portfolio;
-
-const PortfolioStyled = styled.div`
-
-`;

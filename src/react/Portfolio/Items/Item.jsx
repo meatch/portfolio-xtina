@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 
-/* Scripts ---------------------------*/
-import { useMediaQuery } from '../common/responsive.js';
+/* Context ---------------------------*/
+import Context from '../context/store.js';
+import { chosenItemSet, profileShowSet } from '../context/actions.js';
 
-const GalleryPiece = ({item}) => {
+/* Scripts ---------------------------*/
+import { useMediaQuery } from '../../common/responsive.js';
+
+const Item = ({item}) => {
 
     const queries = useMediaQuery();
+    const { state, dispatch } = useContext(Context);
 
     return (
-        <GalleryPieceStyled className='GalleryPiece' queries={ queries }>
+        <ItemStyled
+            className='Item' 
+            queries={ queries }
+            onClick={ () => { 
+                dispatch(chosenItemSet(item)) 
+                dispatch(profileShowSet(true)) 
+            }}
+        >
             <img src={ item.image } alt={ `Portfolio: ${item.title}` } />
             <div className='title'><span>{ item.title }</span></div>
-        </GalleryPieceStyled>
+        </ItemStyled>
     );
 }
 
-export default GalleryPiece;
+export default Item;
 
-const GalleryPieceStyled = styled.div`
+const ItemStyled = styled.div`
     border: solid 1px #b5b5b5;
     position: relative;
 
@@ -30,7 +42,7 @@ const GalleryPieceStyled = styled.div`
             return css`width: 50%;`; 
         }
         if (queries.isLarge) { 
-            return css`width: 25%;`; 
+            return css`width: 33.3333333%;`; 
         }
     }}
 
