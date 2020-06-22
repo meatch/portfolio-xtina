@@ -48,6 +48,8 @@ const EmailAPI = (replyTo, messageBody) => {
         `;
     };
 
+    console.log('process.env', process.env);
+
     const message = {
         to: process.env.EMAIL_RECIP,
         from: process.env.EMAIL_FROM,
@@ -76,8 +78,8 @@ const EmailAPI = (replyTo, messageBody) => {
         /* SendGrid ---------------------------*/
         console.log('Email API: SendGrid');
 
-        sgMail.send(message).then(() => {
-            console.log('Message sent')
+        sgMail.send(message).then((resp) => {
+            console.log('Message sent', resp)
         }).catch((error) => {
             // console.log(error.response.body);
             console.log(error);
