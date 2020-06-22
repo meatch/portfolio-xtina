@@ -6,7 +6,8 @@
 /*---------------------------
 | Environment Vars
 ---------------------------*/
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') })
 
 /*---------------------------
 | Config
@@ -18,7 +19,6 @@ console.log('process.env', process.env.NODE_ENV);
 /*---------------------------
 | Resources
 ---------------------------*/
-const path = require('path');
 // require('dotenv').config({ path: './.env.local' });
 const express = require('express');
 const bodyParser = require("body-parser"); //Only way to do POST requests
