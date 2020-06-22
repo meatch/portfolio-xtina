@@ -11,6 +11,8 @@ const ButtonLink = (props) => {
         href,
     
         className,
+
+        target='_self',
     
         height=44,
         width,
@@ -26,8 +28,6 @@ const ButtonLink = (props) => {
         disabled = false,
         ariaExpanded=null,
         ariaChecked=null,
-    
-        stopPropagation=false,
     } = props;
 
     const theClassName = classnames({
@@ -64,6 +64,7 @@ const ButtonLink = (props) => {
             aria-checked={ ariaChecked }
 
             href={ href }
+            target={ target }
         >
             { children } 
         </ButtonLinkStyled>

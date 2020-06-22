@@ -31,9 +31,8 @@ if ($execute) {
     /* Insert ---------------------------*/
     $items = [];
 
-
+    $sortOrder = 1;
     foreach($newAssocRecords as $key => $value) {
-
         if ($value['showHide'] === 'show') {
 
             $link = ($value['archived'] === "1") ? "https://archives.mitchellgohman.com/{$value['domain']}" : "https://{$value['domain']}";
@@ -41,13 +40,16 @@ if ($execute) {
             $item = (Object)[
                 'id' => $value['id'],
                 'showHide' => $value['showHide'],
-                'sortOrder' => $value['sortOrder'],
+                'sortOrder' => $sortOrder,
                 'title' => $value['title'],
                 'description' => $value['description'],
+                'tools' => $value['tools'],
                 'image' => "/assets/img/portfolio-assets/{$value['image']}",
+                'images' => "/assets/img/portfolio-assets/{$value['images']}",
                 'link' => $link,
             ];
             $items[] = $item;
+            $sortOrder++;
         }
     }
 
