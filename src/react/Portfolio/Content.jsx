@@ -10,7 +10,7 @@ import Profile from './Profile/Profile.jsx';
 
 const Gallery = () => {
 
-    const { state, dispatch } = useContext(Context);
+    const { state } = useContext(Context);
 
     return (
         <GalleryStyled className='Gallery' showProfile={ state.showProfile }>

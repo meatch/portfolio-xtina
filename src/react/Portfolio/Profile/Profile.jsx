@@ -10,7 +10,7 @@ import Hero from './Hero.jsx';
 
 const GalleryProfile = () => {
 
-    const { state, dispatch } = useContext(Context);
+    const { state } = useContext(Context);
 
     if (!state.showProfile) { return <div>Loading...</div>; }
 

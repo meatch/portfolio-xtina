@@ -43,8 +43,7 @@ const ButtonLink = (props) => {
     return (
         <ButtonLinkStyled 
             as='a'
-            className='ButtonLink'
-
+            
             className={ theClassName }
             
             height={ height }

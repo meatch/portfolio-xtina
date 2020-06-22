@@ -9,7 +9,7 @@ import Item from './Item.jsx';
 
 const Items = () => {
 
-    const { state, dispatch } = useContext(Context);
+    const { state } = useContext(Context);
 
     return (
         <ItemsStyled className='Items'>

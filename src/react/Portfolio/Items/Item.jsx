@@ -11,7 +11,7 @@ import { useMediaQuery } from '../../common/responsive.js';
 const Item = ({item}) => {
 
     const queries = useMediaQuery();
-    const { state, dispatch } = useContext(Context);
+    const { dispatch } = useContext(Context);
 
     return (
         <ItemStyled

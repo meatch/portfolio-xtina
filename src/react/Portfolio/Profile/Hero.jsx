@@ -11,7 +11,7 @@ import { useMediaQuery } from '../../common/responsive.js';
 const Hero = () => {
 
     const queries = useMediaQuery();
-    const { state, dispatch } = useContext(Context);
+    const { state } = useContext(Context);
 
     const chosenItem = state.chosenItem;
 
