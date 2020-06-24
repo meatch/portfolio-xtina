@@ -43,6 +43,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 | !IMPORTANT :: Should not be done in Production
 | Bypassing CORS so Node Express can be on port 5000 and react can be on 3000
 ---------------------------*/
+
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
+
 if (process.env.NODE_ENV === 'local') {
     app.use((request, response, next) => {
         response.header("Access-Control-Allow-Origin", "*");

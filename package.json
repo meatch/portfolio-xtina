@@ -43,7 +43,7 @@
         "build": "react-scripts build",
         "client": "react-scripts start",
         "server": "nodemon express.js",
-        "dev": "NODE_ENV=dev concurrently --kill-others-on-fail \"npm run server \" \"npm run client\" "
+        "dev": "concurrently --kill-others-on-fail \"npm run server \" \"npm run client\" "
     },
     "eslintConfig": {
         "extends": "react-app"
