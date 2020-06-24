@@ -29,7 +29,9 @@ const App = () => {
                             </h2>
                             <nav className='Primary'>
                                 <Nav />
-                                <NavSocial />
+                                <NavSocial 
+                                    size={ queries.isSmall ? 25 : 35 }
+                                />
                             </nav>
                         </div>
                     </header>
@@ -111,6 +113,7 @@ const AppStyled = styled.div`
         nav.Primary {
             display: flex;
             justify-content: space-between;
+            align-items:flex-end;
             padding: 10px 0px;
 
             margin-top: 50px;
