@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 
 const PageTemplate = ({title, children}) => {
 
-    const theTitle = `${title} :: The Varied Manifestations of Mitchell Gohman`;
+    const theTitle = `${title} :: The Varied Manifestations of Christina Gohman`;
 
 
     return (

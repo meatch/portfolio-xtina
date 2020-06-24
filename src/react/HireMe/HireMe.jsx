@@ -15,7 +15,7 @@ const HireMe = () => {
 
     return (
         <HireMeStyled className='HireMe' queries={ queries }>
-            <PageTemplate title='Hire Me'>
+            <PageTemplate title='Contact'>
                 <div className="row">
                     <div className="hero">
                         <img src='/assets/img/me.jpg' alt='Mitchell and Christina Gohman' />

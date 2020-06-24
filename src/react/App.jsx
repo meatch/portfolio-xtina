@@ -19,24 +19,33 @@ const App = () => {
     return (
         <BrowserRouter>
             <AppStyled className='App' queries={ queries }>
-                <h2>
-                    <div className='fullname' dangerouslySetInnerHTML={{ __html: config.header.fullname } } />
-                    <div className='title' dangerouslySetInnerHTML={{ __html: config.header.title } } />
-                </h2>
                 <div className="wrapper">
-                    <nav className='Primary'>
-                        <Nav />
-                        <NavSocial />
-                    </nav>
+                    <header>
+                        <div className="inset">
+                            <img className='LightBulb' src="/assets/img/LightBulb.svg" alt="Light Bulb"/>
+                            <h2>
+                                <div className='fullname' dangerouslySetInnerHTML={{ __html: config.header.fullname } } />
+                                <div className='title' dangerouslySetInnerHTML={{ __html: config.header.title } } />
+                            </h2>
+                            <nav className='Primary'>
+                                <Nav />
+                                <NavSocial />
+                            </nav>
+                        </div>
+                    </header>
                     <main>
-                        <Switch>
-                            <Route path='/hireme' component={ HireMe } />
-                            <Route path='/' exact component={ Portfolio } />
-                        </Switch>
+                        <div className="inset">
+                            <Switch>
+                                <Route path='/hireme' component={ HireMe } />
+                                <Route path='/' exact component={ Portfolio } />
+                            </Switch>
+                        </div>
                     </main>
                     <footer>
-                        <div className='tagline' dangerouslySetInnerHTML={{ __html: config.footer.tagline } } />
-                        <div className='copyright' dangerouslySetInnerHTML={{ __html: config.footer.copyright } } />
+                        <div className="inset">
+                            <div className='tagline' dangerouslySetInnerHTML={{ __html: config.footer.tagline } } />
+                            <div className='copyright' dangerouslySetInnerHTML={{ __html: config.footer.copyright } } />
+                        </div>
                     </footer>
                 </div> 
             </AppStyled>
@@ -47,48 +56,68 @@ const App = () => {
 export default App;
 
 const AppStyled = styled.div`
-    background-image: url('/assets/img/backdrop.png');
-    background-position: center top;
+    /* background-image: url('/assets/img/backdrop.png'); */
+    /* background-position: center top;
     background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-color: #08232B;
-    padding: 10px;
-    
-    & > h2 {
-        text-align: center;
-        text-transform: uppercase;
-        color: #fff;
-        margin: 0px;
-
-        .fullname { font-size: 80px; margin-bottom: 5px; }
-        .title { font-size: 40px; }
-
-        ${ ({queries}) => { 
-            if (queries.isSmall) { 
-                return css`padding: 60px 0px;`;
-            }
-            if (queries.isMedium) { 
-                return css`padding: 150px 0px;`;
-            }
-            if (queries.isLarge) { 
-                return css`padding: 150px 0px;`;
-            }
-        }}
-    }
+    background-repeat: no-repeat; */
+    background-color: #dfdfdf;
+    /* padding: 10px; */
 
     .wrapper {
-        max-width: 1200px;
         width: 100%;
-        margin: auto;
+
+        .inset {
+            max-width: 1200px;
+            margin: auto;
+            width: 100%;
+            padding: 1px 10px;
+        }
+
+        header {
+            background-color: #fff;
+
+            img.LightBulb {
+                display: block;
+                margin: 50px auto 0px;
+                width: 150px;
+                height: auto;
+            }
+
+
+            .inset > h2 {
+                text-align: center;
+                text-transform: uppercase;
+                color: #55847E;
+                margin: 0px;
+
+                .fullname { font-size: 50px; margin-bottom: 5px; }
+                .title { font-size: 20px; color: #153E5A; }
+
+                ${ ({queries}) => { 
+                    if (queries.isSmall) { 
+                        return css`padding: 0px;`;
+                    }
+                    if (queries.isMedium) { 
+                        return css`padding: 0px;`;
+                    }
+                    if (queries.isLarge) { 
+                        return css`padding: 0px;`;
+                    }
+                }}
+            }
+
+        }
 
         nav.Primary {
             display: flex;
             justify-content: space-between;
             padding: 10px 0px;
+
+            margin-top: 50px;
         }
         main {
             display: block;
-            background-color: #fff;
+            background-color: #EBEBEB;
             min-height: 500px;
             border-radius: 5px;
 
@@ -106,6 +135,7 @@ const AppStyled = styled.div`
         }
 
         footer {
+            background-color: #fff;
             color: #658d98;
             font-size: 12px;
             text-align: center;

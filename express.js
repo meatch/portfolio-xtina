@@ -12,9 +12,7 @@ require('dotenv').config({ path: path.resolve(__dirname, './.env') })
 /*---------------------------
 | Config
 ---------------------------*/
-const PORT = process.env.NODE_PORT || 5000; // fallback to 5000
-
-console.log('process.env', process.env.NODE_ENV);
+const NODE_PORT = process.env.NODE_PORT || 5000; // fallback to 5000
 
 /*---------------------------
 | Resources
@@ -66,6 +64,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(PORT, () => { 
-    console.log('Server is up and listening on port:' + PORT );  
+app.listen(NODE_PORT, () => { 
+    console.log('Server is up and listening on port:' + NODE_PORT );  
 });

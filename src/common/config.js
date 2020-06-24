@@ -1,7 +1,7 @@
 
 const theDate = new Date();
 const year = theDate.getFullYear();
-const first = 'Mitchell';
+const first = 'Christina';
 const last = 'Gohman';
 
 export const config = {
@@ -9,15 +9,15 @@ export const config = {
         name: {
             first: first,
             last: last,
-            preferred: 'Mitch',
+            preferred: 'Christina',
         },
-        email: 'Me@MitchellGohman.com',
-        phone: '‪(626) 509-9620‬',
-        tel: '16265099620',
+        email: 'Me@ChristinaGohman.com',
+        phone: '‪‭(626) 765-5928',
+        tel: '16267655928',
     },
     header: {
         fullname: `${first} ${last}`,
-        title: `Developer`,
+        title: `Marketing Graphic Designer`,
     },
     footer: {
         tagline: `Designed and Developed by Christina &amp; Mitchell ${last}`,

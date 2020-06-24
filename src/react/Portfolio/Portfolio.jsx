@@ -32,8 +32,8 @@ const Portfolio = () => {
     return (
         <Context.Provider value={ { state, dispatch } }>
             <div className='Portfolio'>
-                <PageTemplate title='Portfolio'>
-                    <Gallery />
+                <PageTemplate title='Work'>
+                    {/* <Gallery /> */}
                 </PageTemplate>
             </div>
         </Context.Provider>

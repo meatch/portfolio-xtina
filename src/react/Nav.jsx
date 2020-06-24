@@ -7,8 +7,8 @@ const Nav = () => {
 
     return (
         <NavStyled className='Nav'>
-            <NavLink to='/' exact>Portfolio</NavLink>
-            <NavLink to='/hireme'>Hire Me</NavLink>
+            <NavLink to='/' exact>Work</NavLink>
+            <NavLink to='/hireme'>Contact</NavLink>
         </NavStyled>
     );
 }
@@ -18,7 +18,7 @@ export default Nav;
 const NavStyled = styled.div`
     a {
         display: inline-block;
-        color: white;
+        color: #F0954C;
         margin-right: 10px;
         font-family: 'Oswald', sans-serif;
         font-size: 20px;
