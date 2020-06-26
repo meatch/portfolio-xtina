@@ -33,24 +33,23 @@ if ($execute) {
 
     $sortOrder = 1;
     foreach($newAssocRecords as $key => $value) {
-        if ($value['showHide'] === 'show') {
-
-            $link = ($value['archived'] === "1") ? "https://archives.mitchellgohman.com/{$value['domain']}" : "https://{$value['domain']}";
-
-            $item = (Object)[
-                'id' => $value['id'],
-                'showHide' => $value['showHide'],
-                'sortOrder' => $sortOrder,
-                'title' => $value['title'],
-                'description' => $value['description'],
-                'tools' => $value['tools'],
-                'image' => "/assets/img/portfolio-assets/{$value['image']}",
-                'images' => "/assets/img/portfolio-assets/{$value['images']}",
-                'link' => $link,
-            ];
-            $items[] = $item;
-            $sortOrder++;
-        }
+        $item = (Object)[
+            'id' => $value['id'],
+            'sortOrder' => $sortOrder,
+            'title' => $value['title'],
+            'subtitle' => $value['subtitle'],
+            'showcased' => $value['showcased'],
+            'media' => $value['media'],
+            'application' => $value['application'],
+            'development' => $value['development'],
+            'highlghts' => $value['highlghts'],
+            'asset_folder' => $value['asset_folder'],
+            'link' => $value['link'],
+            'pdfs' => $value['pdfs'],
+        ];
+        
+        $items[] = $item;
+        $sortOrder++;
     }
 
     // Convert to JSON
