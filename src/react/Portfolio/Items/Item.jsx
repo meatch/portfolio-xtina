@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 /* Context ---------------------------*/
 import Context from '../context/store.js';
@@ -18,12 +18,10 @@ const Item = ({item}) => {
     const imagePath = `/assets/img/portfolio/${item.asset_folder}/nav.jpg`;
 
     const handleOver = () => {
-        console.log('Over');
         isOverSet(true);
     }
 
     const handleOut = () => {
-        console.log('Out');
         isOverSet(false);
     }
 

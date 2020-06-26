@@ -6,6 +6,7 @@ import Context from './context/store.js';
 
 /* Components ---------------------------*/
 import Items from './Items/Items.jsx';
+import Navigator from './Profile/Navigator.jsx';
 import Profile from './Profile/Profile.jsx';
 
 const Gallery = () => {
@@ -14,12 +15,15 @@ const Gallery = () => {
 
     return (
         <GalleryStyled className='Gallery' showProfile={ state.showProfile }>
-            <div className="slider">
-                <div className="column column1">
-                    <Items />
-                </div>
-                <div className="column column2">
-                    <Profile />
+            <Navigator /> 
+            <div className="inset">
+                <div className="slider">
+                    <div className="column column1">
+                        <Items />
+                    </div>
+                    <div className="column column2">
+                        <Profile />
+                    </div>
                 </div>
             </div>
         </GalleryStyled>
@@ -30,8 +34,10 @@ export default Gallery;
 
 const GalleryStyled = styled.div`
 
-    overflow: hidden;
-    margin: 20px 0px 0px;
+    .inset {
+        overflow: hidden;
+        /* margin: 20px 0px 0px; */
+    }
 
 
     .slider {

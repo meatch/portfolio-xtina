@@ -17,7 +17,7 @@ const Portfolio = () => {
     const defaultState = {
         items: [],
         chosenItem: {},
-        showProfile: false,
+        showProfile: true,
     };
 
     const [ state, dispatch ] = useReducer(reducers, defaultState);

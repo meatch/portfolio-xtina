@@ -12,8 +12,6 @@ const PageTemplate = ({title, children}) => {
             <Helmet className='TitleMeta'>
                 <title>{ theTitle }</title>
             </Helmet>
-
-            <h1>{ title }</h1> 
             { children }
         </PageTemplateStyled>
     );

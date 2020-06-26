@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Context from '../context/store.js';
 
 /* Components ---------------------------*/
-import Navigator from './Navigator.jsx';
 import Hero from './Hero.jsx';
 
 const GalleryProfile = () => {
@@ -16,7 +15,6 @@ const GalleryProfile = () => {
 
     return (
         <GalleryProfileStyled className='GalleryProfile'>
-            <Navigator />
             <Hero />
         </GalleryProfileStyled>
     );

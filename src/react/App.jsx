@@ -20,7 +20,7 @@ const App = () => {
         <BrowserRouter>
             <AppStyled className='App' queries={ queries }>
                 <div className="wrapper">
-                    <header>
+                    <header className='masthead'>
                         <div className="inset">
                             <img className='LightBulb' src="/assets/img/bulbs/bulb1-cheery.svg" alt="Light Bulb"/>
                             <h2>
@@ -36,14 +36,12 @@ const App = () => {
                         </div>
                     </header>
                     <main>
-                        <div className="inset">
-                            <Switch>
-                                <Route path='/hireme' component={ HireMe } />
-                                <Route path='/' exact component={ Portfolio } />
-                            </Switch>
-                        </div>
+                        <Switch>
+                            <Route path='/hireme' component={ HireMe } />
+                            <Route path='/' exact component={ Portfolio } />
+                        </Switch>
                     </main>
-                    <footer>
+                    <footer className='closing'>
                         <div className="inset">
                             <div className='tagline' dangerouslySetInnerHTML={{ __html: config.footer.tagline } } />
                             <div className='copyright' dangerouslySetInnerHTML={{ __html: config.footer.copyright } } />
@@ -75,7 +73,7 @@ const AppStyled = styled.div`
             padding: 1px 10px;
         }
 
-        header {
+        header.masthead {
             background-color: #fff;
 
             img.LightBulb {
@@ -123,21 +121,9 @@ const AppStyled = styled.div`
             background-color: #EBEBEB;
             min-height: 500px;
             border-radius: 5px;
-
-            ${ ({queries}) => { 
-                if (queries.isSmall) { 
-                    return css`padding: 10px;`;
-                }
-                if (queries.isMedium) { 
-                    return css`padding: 10px;`;
-                }
-                if (queries.isLarge) { 
-                    return css`padding: 20px;`;
-                }
-            }}
         }
 
-        footer {
+        footer.closing {
             background-color: #fff;
             color: #658d98;
             font-size: 12px;

@@ -42,7 +42,7 @@ if ($execute) {
             'media' => $value['media'],
             'application' => $value['application'],
             'development' => $value['development'],
-            'highlghts' => $value['highlghts'],
+            'highlights' => $value['highlights'],
             'asset_folder' => $value['asset_folder'],
             'link' => $value['link'],
             'pdfs' => $value['pdfs'],

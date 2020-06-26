@@ -14,6 +14,7 @@ const Navigator = () => {
     
     const items = state.items;
     const chosenItem = state.chosenItem;
+    const showProfile = state.showProfile;
     
     const getPrevItem = () => {
         const prevSortOrder = parseInt(chosenItem.sortOrder) - 1;
@@ -39,13 +40,18 @@ const Navigator = () => {
     return (
         <NavigatorStyled className='Navigator'>
             {
-                prevItem &&
-                <Button onClick={ () => { dispatch(chosenItemSet(prevItem))  } }>Prev</Button>
-            }
-            <Button onClick={ () => { dispatch(profileShowSet(false)) } }>Back to Gallery</Button>
-            {
-                nextItem &&
-                <Button onClick={ () => { dispatch(chosenItemSet(nextItem))  } }>Next</Button>
+                showProfile &&
+                <div>
+                    {
+                        prevItem &&
+                        <Button onClick={ () => { dispatch(chosenItemSet(prevItem))  } }>Prev</Button>
+                    }
+                    <Button onClick={ () => { dispatch(profileShowSet(false)) } }>Back to Gallery</Button>
+                    {
+                        nextItem &&
+                        <Button onClick={ () => { dispatch(chosenItemSet(nextItem))  } }>Next</Button>
+                    }
+                </div>
             }
         </NavigatorStyled>
     );
@@ -54,6 +60,9 @@ const Navigator = () => {
 export default Navigator;
 
 const NavigatorStyled = styled.div`
+
+    background-color: #E2E3E5;
+    padding: 20px 10px;
 
     text-align: center;
     
