@@ -22,7 +22,7 @@ const App = () => {
                 <div className="wrapper">
                     <header>
                         <div className="inset">
-                            <img className='LightBulb' src="/assets/img/LightBulb.svg" alt="Light Bulb"/>
+                            <img className='LightBulb' src="/assets/img/bulbs/bulb1-cheery.svg" alt="Light Bulb"/>
                             <h2>
                                 <div className='fullname' dangerouslySetInnerHTML={{ __html: config.header.fullname } } />
                                 <div className='title' dangerouslySetInnerHTML={{ __html: config.header.title } } />
