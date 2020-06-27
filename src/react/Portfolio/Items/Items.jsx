@@ -27,4 +27,5 @@ export default Items;
 const ItemsStyled = styled.div`
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 20px;
 `;

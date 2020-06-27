@@ -84,6 +84,8 @@ const NavigatorStyled = styled.div`
     text-align: center;
     height: 60px;
 
+    margin: 0 0 20px;
+
     .row {
         height: 60px;
         display: flex;

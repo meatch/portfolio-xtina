@@ -17,12 +17,14 @@ const Gallery = () => {
         <GalleryStyled className='Gallery' showProfile={ state.showProfile }>
             <Navigator /> 
             <div className="inset">
-                <div className="slider">
-                    <div className="column column1">
-                        <Items />
-                    </div>
-                    <div className="column column2">
-                        <Profile />
+                <div className="clipping">
+                    <div className="slider">
+                        <div className="column column1">
+                            <Items />
+                        </div>
+                        <div className="column column2">
+                            <Profile />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,9 +36,12 @@ export default Gallery;
 
 const GalleryStyled = styled.div`
 
-    .inset {
+    /* padding: 0px 10px; */
+
+    &.Gallery .clipping {
         overflow: hidden;
         /* margin: 20px 0px 0px; */
+        padding: 0px;
     }
 
 
