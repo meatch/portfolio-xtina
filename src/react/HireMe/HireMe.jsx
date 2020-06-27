@@ -16,23 +16,26 @@ const HireMe = () => {
     return (
         <HireMeStyled className='HireMe' queries={ queries }>
             <PageTemplate title='Contact'>
-                <div className="row">
-                    <div className="hero">
-                        <img src='/assets/img/me.jpg' alt='Mitchell and Christina Gohman' />
-                    </div>
-                    <div className="deets">
-                        <h3>I love building things that make a difference for people.</h3>
+                <div className="deets">
+                    <img className='hero' src='/assets/img/me.png' alt='Mitchell and Christina Gohman' />
+                    <h3>
+                        <img className='LightBulb' src="/assets/img/bulbs/bulb1-cheery.svg" alt="Light Bulb"/>
+                        Let’s Shine Together!
+                    </h3>
 
-                        <NavSocial
-                            size={ 50 }
-                            opacity={ .8 }
-                            bgColor="rgba(19,77,95,1)"
-                            iconColor="rgba(255,255,255,1)"
-                        />
+                    <ul className='downloadables'>
+                        <li><a href='/assets/img/Christina.Gohman.Resume.pdf'>My Resume</a></li>
+                        <li><a href='/assets/img/Christina.Gohman.Portfolio.pdf'>My PDF Portfolio</a></li>
+                    </ul>
 
-                        <h2>Let's Connect</h2>
-                        <ContactForm />
-                    </div>
+                    <NavSocial
+                        size={ 50 }
+                        opacity={ .8 }
+                        bgColor="rgb(84, 132, 126)"
+                        iconColor="rgba(255,255,255,1)"
+                    />
+
+                    <ContactForm />
                 </div>
             </PageTemplate>
         </HireMeStyled>
@@ -43,45 +46,56 @@ export default HireMe;
 
 const HireMeStyled = styled.div`
 
-    ${ ({queries}) => { 
-        if (queries.isSmall) { 
-            return css`
-                .row { display: block; }
-                .hero { margin-bottom: 10px; }
-                .deets h3 { font-size: 30px; line-height: 90%; }
-            `; 
-        }
-        if (queries.isMedium) { 
-            return css`
-                .row { display: flex; }
-                .hero { flex: 2; }
-                .deets { flex: 3; padding: 0px 20px; }
-                .deets h3 { font-size: 45px; line-height: 90%; }
-            `; 
-        }
-        if (queries.isLarge) { 
-            return css`
-                .row { display: flex; }
-                .hero { flex: 2; }
-                .deets { flex: 3; padding: 0px 20px; }
-                .deets h3 { font-size: 65px; line-height: 90%; }
-            `; 
-        }
-    }}
-
-    img {
-        max-width: 100%;
-    }
-
-    .hero img {
-        display: block;
-    }
-
     .deets {
-        h3 { margin: 0px 0px 50px;  }
+        max-width: 500px;
+        margin: auto;
+
+        padding: 50px 0px;
+
+        img {
+            max-width: 100%;
+        }
+        img.hero {
+            display: block;
+            box-shadow: 7px 5px 6px 0px rgba(0, 0, 0, 0.17);
+            margin-bottom: 50px;
+        }
+
+        h3 { 
+            margin: 0px 0px 50px;  
+            text-align: center;
+            color: rgb(84, 132, 126);
+            font-size: 30px; 
+            line-height: 90%;
+            img {
+                width: auto;
+                height: 35px;
+                margin-right: 10px;
+                position: relative;
+                top: 5px;
+            }
+        }
+
+        .downloadables {
+            margin: 0px;
+            padding: 0px;
+            text-align: center;
+            li { list-style-type: none; }
+
+            a {
+                text-transform: uppercase;
+                display: block;
+                text-decoration: none;
+                color: orange;
+                font-weight: bold;
+                margin: 3px 0px;
+            }
+        }
         h4 { font-size: 30px; }
 
         .NavSocial {
+            text-align: center;
+            margin: 50px 0px;
             a {
                 margin: 0px 10px 0px 0px;
             }

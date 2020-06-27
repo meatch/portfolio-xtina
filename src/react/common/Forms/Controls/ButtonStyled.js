@@ -8,10 +8,11 @@ export const ButtonStyled = styled.button`
     display: ${({display}) => display };
     
     /* Box Model */
-    background-color: #42707e;
+    background-color: rgb(240, 149, 76);
     margin: 0;
     padding: ${({display}) => (display === 'block') ? '0':'0 44px' };
-    border: 2px solid #104e61;
+    /* border: 2px solid #104e61; */
+    border: none;
     border-radius: 4px;
     
     /* Font */
@@ -24,10 +25,10 @@ export const ButtonStyled = styled.button`
     cursor: pointer;
 
     &:hover {
-        background-color: #104e61;
+        background-color: rgb(206, 100, 16);
     }
     &.active, &:active {
-        background-color: #42707e;
+        background-color: rgb(240, 149, 76);
     }
     /* currently relying on default focus styles. */
     &:focus { }

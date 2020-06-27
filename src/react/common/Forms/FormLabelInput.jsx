@@ -95,7 +95,7 @@ const FormLabelInputStyled = styled.div`
         padding: 10px;
         border-radius: 5px;
 
-        border: solid 1px #999;
+        border: none;
         outline: none;
         
         &:focus {
