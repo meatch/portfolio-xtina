@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 /* Scripts ---------------------------*/
 import { useMediaQuery } from '../common/responsive.js';
@@ -24,8 +24,8 @@ const HireMe = () => {
                     </h3>
 
                     <ul className='downloadables'>
-                        <li><a href='/assets/img/Christina.Gohman.Resume.pdf'>My Resume</a></li>
-                        <li><a href='/assets/img/Christina.Gohman.Portfolio.pdf'>My PDF Portfolio</a></li>
+                        <li><a href='/assets/img/Christina.Gohman.Resume.pdf' target='_blank'>My Resume</a></li>
+                        <li><a href='/assets/img/Christina.Gohman.Portfolio.pdf' target='_blank'>My PDF Portfolio</a></li>
                     </ul>
 
                     <NavSocial

@@ -47,7 +47,7 @@ const AppStyled = styled.div`
         width: 100%;
 
         .inset {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: auto;
             width: 100%;
             padding: 1px 10px;
