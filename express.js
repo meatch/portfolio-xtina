@@ -12,7 +12,7 @@ require('dotenv').config({ path: path.resolve(__dirname, './.env') })
 /*---------------------------
 | Config
 ---------------------------*/
-const NODE_PORT = process.env.NODE_PORT || 5000; // fallback to 5000
+const NODE_PORT = process.env.NODE_PORT || 5001; // fallback to 5001
 
 /*---------------------------
 | Resources
