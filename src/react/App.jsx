@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 /* Scripts ---------------------------*/
@@ -7,7 +7,7 @@ import { useMediaQuery } from './common/responsive.js';
 import { config } from '../common/config.js';
 
 /* Components ---------------------------*/
-import Nav from './Nav.jsx';
+import Header from './Header.jsx';
 import NavSocial from './NavSocial.jsx';
 import Portfolio from './Portfolio/Portfolio.jsx';
 import HireMe from './HireMe/HireMe.jsx';
@@ -20,21 +20,7 @@ const App = () => {
         <BrowserRouter>
             <AppStyled className='App' queries={ queries }>
                 <div className="wrapper">
-                    <header className='masthead'>
-                        <div className="inset">
-                            <img className='LightBulb' src="/assets/img/bulbs/bulb1-cheery.svg" alt="Light Bulb"/>
-                            <h2>
-                                <div className='fullname' dangerouslySetInnerHTML={{ __html: config.header.fullname } } />
-                                <div className='title' dangerouslySetInnerHTML={{ __html: config.header.title } } />
-                            </h2>
-                            <nav className='Primary'>
-                                <Nav />
-                                <NavSocial 
-                                    size={ queries.isSmall ? 25 : 35 }
-                                />
-                            </nav>
-                        </div>
-                    </header>
+                    <Header />
                     <main>
                         <Switch>
                             <Route path='/hireme' component={ HireMe } />
@@ -43,6 +29,9 @@ const App = () => {
                     </main>
                     <footer className='closing'>
                         <div className="inset">
+                            <img className='LightBulb' src="/assets/img/bulbs/bulb1-cheery.svg" alt="Light Bulb"/>
+                            <div>Color • Fonts • Grids • oh my!</div>
+
                             <div className='tagline' dangerouslySetInnerHTML={{ __html: config.footer.tagline } } />
                             <div className='copyright' dangerouslySetInnerHTML={{ __html: config.footer.copyright } } />
                         </div>
@@ -71,41 +60,6 @@ const AppStyled = styled.div`
             margin: auto;
             width: 100%;
             padding: 1px 10px;
-        }
-
-        header.masthead {
-            background-color: #fff;
-
-            img.LightBulb {
-                display: block;
-                margin: 50px auto 0px;
-                width: 150px;
-                height: auto;
-            }
-
-
-            .inset > h2 {
-                text-align: center;
-                text-transform: uppercase;
-                color: #55847E;
-                margin: 0px;
-
-                .fullname { font-size: 50px; margin-bottom: 5px; }
-                .title { font-size: 20px; color: #153E5A; }
-
-                ${ ({queries}) => { 
-                    if (queries.isSmall) { 
-                        return css`padding: 0px;`;
-                    }
-                    if (queries.isMedium) { 
-                        return css`padding: 0px;`;
-                    }
-                    if (queries.isLarge) { 
-                        return css`padding: 0px;`;
-                    }
-                }}
-            }
-
         }
 
         nav.Primary {
