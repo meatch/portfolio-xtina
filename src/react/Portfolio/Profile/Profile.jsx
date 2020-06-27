@@ -6,6 +6,7 @@ import Context from '../context/store.js';
 
 /* Components ---------------------------*/
 import Hero from './Hero.jsx';
+import SubImages from './SubImages.jsx';
 
 const GalleryProfile = () => {
 
@@ -16,6 +17,7 @@ const GalleryProfile = () => {
     return (
         <GalleryProfileStyled className='GalleryProfile'>
             <Hero />
+            <SubImages />
         </GalleryProfileStyled>
     );
 }

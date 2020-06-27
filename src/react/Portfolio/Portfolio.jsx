@@ -10,14 +10,14 @@ import { callAxios } from '../../common/axios.js';
 
 /* Components ---------------------------*/
 import PageTemplate from '../PageTemplate.jsx';
-import Gallery from './Content.jsx';
+import Gallery from './Gallery.jsx';
 
 const Portfolio = () => {
 
     const defaultState = {
         items: [],
         chosenItem: {},
-        showProfile: true,
+        showProfile: false,
     };
 
     const [ state, dispatch ] = useReducer(reducers, defaultState);

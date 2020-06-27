@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-
+import _ from 'lodash';
 
 /* Context ---------------------------*/
 import Context from '../context/store.js';
@@ -19,6 +19,10 @@ const Hero = () => {
 
     const chosenItem = state.chosenItem;
 
+    if (_.isEmpty(chosenItem)) { return 'Loading...'; }
+
+    console.log('chosenItem', chosenItem);
+
     return (
         <HeroStyled className='Hero' queries={ queries }>
             <header>
@@ -27,7 +31,7 @@ const Hero = () => {
             </header>
             <div className="row">
                 <div className="column column1">
-                    <img src={ `/assets/img/portfolio/${chosenItem.asset_folder}/hero.jpg` } alt={ `Portfolio: ${chosenItem.title}` } />
+                    <img src={ chosenItem.images.hero } alt={ `Portfolio: ${chosenItem.title}` } />
                 </div>
                 <div className="column column2">
                     <p className='description'>
@@ -46,7 +50,13 @@ const Hero = () => {
                         <b>Highlights:</b> <span dangerouslySetInnerHTML={{ __html: chosenItem.highlights }} />
                     </p>
 
-                    <img src={ `/assets/img/portfolio/${chosenItem.asset_folder}/column-footer.jpg` } alt={ `Portfolio: ${chosenItem.title}` } />
+                    {
+                        chosenItem.images.column_footer.map((img, idx) => {
+                            return <img key={ idx } src={ img } alt={ `${chosenItem.title} Supplement` } />;
+                        })
+                    }
+
+
                 </div>
             </div>
         </HeroStyled>
@@ -64,7 +74,6 @@ const HeroStyled = styled.div`
         h2 { font-size: 50px; margin: 0px; line-height: 120%; color: #EF984B; }
         h3 { font-size: 30px; margin: 0px; line-height: 120%; font-weight: normal; }
     }
-
 
     &.Hero {
         margin: 20px 0px;

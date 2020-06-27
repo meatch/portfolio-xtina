@@ -33,6 +33,36 @@ if ($execute) {
 
     $sortOrder = 1;
     foreach($newAssocRecords as $key => $value) {
+
+        $asset_folder = $value['asset_folder'];
+        $pdfs = (!empty($value['pdfs'])) ? explode(',',str_replace(' ', '', $value['pdfs'])) : [];
+
+        /*---------------------------
+        | Grab Right Column Images
+        ---------------------------*/
+        $column_footer_images = [];
+        $allColumnFooterImages = scandir("../../../public/assets/img/portfolio/{$asset_folder}/column-footer/");
+
+        foreach($allColumnFooterImages as $file) {
+            if (strpos($file, '.jpg') !== false || strpos($file, '.gif') !== false || strpos($file, '.png') !== false || strpos($file, '.svg') !== false)  {
+                $column_footer_images[] = "/assets/img/portfolio/{$asset_folder}/column-footer/" . $file;
+            }
+        }
+        
+        /*---------------------------
+        | Grab Sub Profile Images if they exist
+        ---------------------------*/
+        $sub_images = [];
+        $subfolderAllFiles = scandir("../../../public/assets/img/portfolio/{$asset_folder}/sub/");
+        foreach($subfolderAllFiles as $file) {
+            if (strpos($file, '.jpg') !== false || strpos($file, '.gif') !== false || strpos($file, '.png') !== false || strpos($file, '.svg') !== false)  {
+                $sub_images[] = "/assets/img/portfolio/{$asset_folder}/sub/" . $file;
+            }
+        }
+
+        /*---------------------------
+        | Build Data Shape
+        ---------------------------*/
         $item = (Object)[
             'id' => $value['id'],
             'sortOrder' => $sortOrder,
@@ -43,9 +73,15 @@ if ($execute) {
             'application' => $value['application'],
             'development' => $value['development'],
             'highlights' => $value['highlights'],
-            'asset_folder' => $value['asset_folder'],
+            'asset_folder' => $asset_folder,
             'link' => $value['link'],
-            'pdfs' => $value['pdfs'],
+            'pdfs' => $pdfs,
+            'images' => (Object)[
+                'hero' => "/assets/img/portfolio/{$asset_folder}/hero.jpg",
+                'column_footer' => $column_footer_images,
+                'sub' => $sub_images,
+            ],
+
         ];
         
         $items[] = $item;

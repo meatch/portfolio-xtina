@@ -7,14 +7,12 @@ import {
 
 const Publications = ({chosenItem}) => {
 
-    const pubs = chosenItem.pdfs ? chosenItem.pdfs.split(','):[];
-
-    // if (!pubs || pubs.length === 0) { return ''; }
+    if (chosenItem.pdfs.length === 0) { return ''; }
 
     return (
         <PublicationsStyled className='Publications'>
             {
-                pubs.map((pub, idx) => {
+                chosenItem.pdfs.map((pub, idx) => {
                     return (
                         <a 
                             key={ idx }
