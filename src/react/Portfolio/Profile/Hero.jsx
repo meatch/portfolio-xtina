@@ -57,6 +57,15 @@ export default Hero;
 
 const HeroStyled = styled.div`
 
+    header {
+        text-align: center;
+        margin-bottom: 20px;
+
+        h2 { font-size: 50px; margin: 0px; line-height: 120%; color: #EF984B; }
+        h3 { font-size: 30px; margin: 0px; line-height: 120%; font-weight: normal; }
+    }
+
+
     &.Hero {
         margin: 20px 0px;
 
@@ -89,7 +98,5 @@ const HeroStyled = styled.div`
         }
         .media { margin-bottom: 0; }
         .development { margin-top: 0; }
-
-
     }
 `;
