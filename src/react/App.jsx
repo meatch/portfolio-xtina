@@ -4,11 +4,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 /* Scripts ---------------------------*/
 import { useMediaQuery } from './common/responsive.js';
-import { config } from '../common/config.js';
 
 /* Components ---------------------------*/
 import Header from './Header.jsx';
-import NavSocial from './NavSocial.jsx';
+import Footer from './Footer.jsx';
 import Portfolio from './Portfolio/Portfolio.jsx';
 import HireMe from './HireMe/HireMe.jsx';
 
@@ -27,15 +26,7 @@ const App = () => {
                             <Route path='/' exact component={ Portfolio } />
                         </Switch>
                     </main>
-                    <footer className='closing'>
-                        <div className="inset">
-                            <img className='LightBulb' src="/assets/img/bulbs/bulb1-cheery.svg" alt="Light Bulb"/>
-                            <div>Color • Fonts • Grids • oh my!</div>
-
-                            <div className='tagline' dangerouslySetInnerHTML={{ __html: config.footer.tagline } } />
-                            <div className='copyright' dangerouslySetInnerHTML={{ __html: config.footer.copyright } } />
-                        </div>
-                    </footer>
+                    <Footer />
                 </div> 
             </AppStyled>
         </BrowserRouter>
@@ -75,14 +66,6 @@ const AppStyled = styled.div`
             background-color: #EBEBEB;
             min-height: 500px;
             border-radius: 5px;
-        }
-
-        footer.closing {
-            background-color: #fff;
-            color: #658d98;
-            font-size: 12px;
-            text-align: center;
-            padding: 100px 20px;
         }
     }
 `;
