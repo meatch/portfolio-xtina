@@ -25,5 +25,5 @@ const GalleryProfile = () => {
 export default GalleryProfile;
 
 const GalleryProfileStyled = styled.div`
-    
+    padding-bottom: 100px;
 `;
