@@ -21,8 +21,6 @@ const Hero = () => {
 
     if (_.isEmpty(chosenItem)) { return 'Loading...'; }
 
-    console.log('chosenItem', chosenItem);
-
     return (
         <HeroStyled className='Hero' queries={ queries }>
             <header>
@@ -85,7 +83,7 @@ const HeroStyled = styled.div`
             .column1 {
                 img  {
                     max-width: 100%;
-                    border: solid 1px #333;
+                    border: solid 1px white;
                 }
             }
 
