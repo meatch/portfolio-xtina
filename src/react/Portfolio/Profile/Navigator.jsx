@@ -53,18 +53,18 @@ const Navigator = () => {
                             prevItem &&
                             <>
                                 <FontAwesomeIcon icon={ faCaretLeft } />
-                                <Button onClick={ () => { dispatch(chosenItemSet(prevItem))  } }>THIS WAY</Button>
+                                <Button height='25' onClick={ () => { dispatch(chosenItemSet(prevItem))  } }>THIS WAY</Button>
                             </>
                         }
                     </div>
                     <div className='column column2'>
-                        <Button onClick={ () => { dispatch(profileShowSet(false)) } }>HOME SWEET HOME</Button>
+                        <Button height='25' onClick={ () => { dispatch(profileShowSet(false)) } }>HOME SWEET HOME</Button>
                     </div>
                     <div className='column column3'>
                         {
                             nextItem &&
                             <>
-                                <Button onClick={ () => { dispatch(chosenItemSet(nextItem))  } }>THAT WAY</Button>
+                                <Button height='25' onClick={ () => { dispatch(chosenItemSet(nextItem))  } }>THAT WAY</Button>
                                 <FontAwesomeIcon icon={ faCaretRight } />
                             </>
                         }
@@ -94,14 +94,20 @@ const NavigatorStyled = styled.div`
         max-width: 540px;
         margin: auto;
 
-        .column1 { flex: 1; }
-        .column2 { flex: 2; }
-        .column3 { flex: 1; }
+        .column { border: 2px solid rgba(0,0,0,0); }
+
+        .column1 { flex: 0 0 135px; }
+        .column2 { flex: 0 0 220px; }
+        .column3 { flex: 0 0 135px; }
 
         .column2 {
-            border: solid 1px #EE984B;
-            border-top: none;
-            border-bottom: none;
+            border-left-color: #EE984B;
+            border-right-color: #EE984B;
+
+            button {
+                position: relative;
+                top: 1px;
+            }
         }
     }
 
@@ -124,7 +130,7 @@ const NavigatorStyled = styled.div`
         font-size: 26px;
         color: #EE984B;
         position: relative;
-        top: 4px;
+        top: 3px;
     }
 
 
