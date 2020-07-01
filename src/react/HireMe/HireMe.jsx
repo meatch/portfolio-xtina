@@ -4,6 +4,9 @@ import styled from 'styled-components';
 /* Scripts ---------------------------*/
 import { useMediaQuery } from '../common/responsive.js';
 
+/* Scripts ---------------------------*/
+import { config } from '../../common/config.js';
+
 /* Components ---------------------------*/
 import PageTemplate from '../PageTemplate.jsx';
 import NavSocial from '../NavSocial.jsx';
@@ -34,6 +37,13 @@ const HireMe = () => {
                         bgColor="rgb(84, 132, 126)"
                         iconColor="rgba(255,255,255,1)"
                     />
+
+                    <h3>
+                        Give me a ring:
+                        <a href={`tel:${config.author.tel}`}>
+                            {config.author.phone}
+                        </a>
+                    </h3>
 
                     <ContactForm />
                 </div>
@@ -73,6 +83,15 @@ const HireMeStyled = styled.div`
                 margin-right: 10px;
                 position: relative;
                 top: 5px;
+            }
+
+            a {
+                text-transform: uppercase;
+                display: block;
+                text-decoration: none;
+                color: orange;
+                font-weight: bold;
+                margin: 10px 0px;
             }
         }
 
