@@ -107,7 +107,5 @@ const HeroStyled = styled.div`
             margin: 20px 0px;
             line-height: 150%;
         }
-        .media { margin-bottom: 0; }
-        .development { margin-top: 0; }
     }
 `;
