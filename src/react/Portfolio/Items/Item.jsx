@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 /* Context ---------------------------*/
 import Context from '../context/store.js';
@@ -93,8 +93,9 @@ const ItemStyled = styled.div`
         }
 
         img {
-            width: 75px;
-            height: 75px;
+            ${ ({queries}) => (queries.isSmall) && css`width:50px; height:50px;` };
+            ${ ({queries}) => (queries.isMedium) && css`width:75px; height:75px;` };
+            ${ ({queries}) => (queries.isLarge) && css`width:100px; height:100px;` };
         }
     }
 
