@@ -94,7 +94,7 @@ const TheForm = ({formFields, handleFormFieldOnChange, handleFormSubmit}) => {
 }
 
 const ContactFormStyled = styled.div`
-    margin: 20px 0px;
+    margin: 20px 10px;
 
     .reCaptcha-wrapper {
         margin: 10px 0px;
