@@ -44,9 +44,13 @@ const Hero = () => {
                     <p className='development'>
                         <b>Development:</b> <span dangerouslySetInnerHTML={{ __html: chosenItem.development }} />
                     </p>
-                    <p className='highlights'>
-                        <b>Highlights:</b> <span dangerouslySetInnerHTML={{ __html: chosenItem.highlights }} />
-                    </p>
+
+                    {
+                        (chosenItem.highlights) &&
+                        <p className='highlights'>
+                            <b>Highlights:</b> <span dangerouslySetInnerHTML={{ __html: chosenItem.highlights }} />
+                        </p>
+                    }
 
                     {
                         chosenItem.images.column_footer.map((img, idx) => {
