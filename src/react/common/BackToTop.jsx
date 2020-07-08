@@ -45,7 +45,6 @@ const BackToTopStyled = styled.a`
     background-color: rgba(255, 255, 255, 0.87);
     padding: 10px;
 
-
     position: fixed;
     left: 25px;
     bottom: 25px;
