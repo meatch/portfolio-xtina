@@ -6,7 +6,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useMediaQuery } from './common/responsive.js';
 
 /* Components ---------------------------*/
-import BackToTop from './common/BackToTop.jsx';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import Portfolio from './Portfolio/Portfolio.jsx';
@@ -30,7 +29,6 @@ const App = () => {
                     <Footer />
                 </div> 
             </AppStyled>
-            <BackToTop />
         </BrowserRouter>
     );
 }
