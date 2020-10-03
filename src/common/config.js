@@ -17,7 +17,7 @@ export const config = {
     },
     header: {
         fullname: `${first} ${last}`,
-        title: `Graphic Design Specialist`,
+        title: `Marketing Graphic Designer`,
     },
     footer: {
         tagline: `Designed and Developed by Christina &amp; Mitchell ${last}`,

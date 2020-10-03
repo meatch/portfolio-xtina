@@ -27,8 +27,8 @@ const HireMe = () => {
                     </h3>
 
                     <ul className='downloadables'>
-                        <li><a href='/assets/img/Christina.Gohman.Resume.pdf' target='_blank'>My Resume</a></li>
-                        <li><a href='/assets/img/Christina.Gohman.Portfolio.pdf' target='_blank'>My PDF Portfolio</a></li>
+                        <li><a href='/assets/img/Christina.Gohman.Resume.pdf' target='_blank'>Download My Resume</a></li>
+                        <li><a href='/assets/img/Christina.Gohman.Portfolio.pdf' target='_blank'>Download My Portfolio</a></li>
                     </ul>
 
                     <NavSocial
