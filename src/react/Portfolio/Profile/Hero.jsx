@@ -51,12 +51,13 @@ const Hero = () => {
                             <b>Highlights:</b> <span dangerouslySetInnerHTML={{ __html: chosenItem.highlights }} />
                         </p>
                     }
-
-                    {
-                        chosenItem.images.column_footer.map((img, idx) => {
-                            return <img key={ idx } src={ img } alt={ `${chosenItem.title} Supplement` } />;
-                        })
-                    }
+                    <div className="images">
+                        {
+                            chosenItem.images.column_footer.map((img, idx) => {
+                                return <img key={ idx } src={ img } alt={ `${chosenItem.title} Supplement` } />;
+                            })
+                        }
+                    </div>
 
 
                 </div>
@@ -87,7 +88,6 @@ const HeroStyled = styled.div`
             .column1 {
                 img  {
                     max-width: 100%;
-                    border: solid 1px white;
                 }
             }
 
@@ -98,6 +98,13 @@ const HeroStyled = styled.div`
                 h2 {
                     font-size: 35px;
                     margin: 0px 0px 20px;
+                }
+
+                .images {
+                    img {
+                        display: block;
+                        margin: auto;
+                    }
                 }
 
             }
